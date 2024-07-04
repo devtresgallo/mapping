@@ -131,7 +131,7 @@ a.source:visited {
 }
 
 .leaflet-marker-icon {
-  opacity: 0.75;
+  opacity: 1;
 }
 
 /*

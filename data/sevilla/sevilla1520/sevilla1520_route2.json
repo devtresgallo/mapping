@@ -1,0 +1,46 @@
+{
+    "markers": [
+        {
+            "point": "A",
+            "name": "Convento Madre de Dios",
+            "lat": "37.388226",
+            "long": "-5.989019"
+        },
+        {
+            "point": "B",
+            "name": "Encuentro Juan F. y Juan G. con Gerónimo Aguilar",
+            "lat": "37.393934",
+            "long": "-5.987720"
+        },
+        {
+            "point": "C",
+            "name": "Encuentro Juan F. y Juan G. con Alonso G.",
+            "lat": "37.389312",
+            "long": "-5.987919"
+        },
+        {
+            "point": "D",
+            "name": "Calle Álvarez Quintero",
+            "lat": "37.388263",
+            "long": "-5.993265"
+        },
+        {
+            "point": "E",
+            "name": "Pl. de S. Francisco, 2, Casco Antiguo",
+            "lat": "37.388640",
+            "long": "-5.994202"
+        },
+        {
+            "point": "F",
+            "name": "Palacio Arzobispal",
+            "lat": "37.386301",
+            "long": "-5.992256"
+        },
+        {
+            "point": "G",
+            "name": "C. Deán Miranda, 6, Casco Antiguo",
+            "lat": "37.383527",
+            "long": "-5.992252"
+        }
+    ]
+}

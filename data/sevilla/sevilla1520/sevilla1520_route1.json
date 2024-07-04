@@ -1,0 +1,40 @@
+{
+    "markers": [
+        {
+            "point": "A",
+            "name": "Plaza San Francisco",
+            "lat": "37.388640",
+            "long": "-5.994202"
+        },
+        {
+            "point": "B",
+            "name": "Plaza del Salvador",
+            "lat": "37.390224",
+            "long": "-5.993260"
+        },
+        {
+            "point": "C",
+            "name": "Antigua plaza de la Caça?",
+            "lat": "37.390366",
+            "long": "-5.991207"
+        },
+        {
+            "point": "D",
+            "name": "Plaza de Santa Catalina",
+            "lat": "37.393594",
+            "long": "-5.988157"
+        },
+        {
+            "point": "E",
+            "name": "Plaza San Román",
+            "lat": "37.394695",
+            "long": "-5.986541"
+        },
+        {
+            "point": "F",
+            "name": "Puerta de la Macarena",
+            "lat": "37.402816",
+            "long": "-5.989231"
+        }
+    ]
+}

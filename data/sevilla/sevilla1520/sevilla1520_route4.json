@@ -1,0 +1,22 @@
+{
+    "markers": [
+        {
+            "point": "A",
+            "name": "Guerrero reúne gente en el cabildo",
+            "lat": "37.386170",
+            "long": "-5.994678"
+        },
+        {
+            "point": "B",
+            "name": "\"Escuadrones en fabor de la justiçia\"",
+            "lat": "37.384378",
+            "long": "-5.992948"
+        },
+        {
+            "point": "C",
+            "name": "Pl. del Patio de Banderas, s/n, Casco Antiguo",
+            "lat": "37.384595",
+            "long": "-5.992425"
+        }
+    ]
+}

@@ -1,1 +1,46 @@
+# Node dependencies
+node_modules/
+
+# Dependency directories
+jspm_packages/
+
+# Build output directories
+dist/
+build/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment configuration
+.env
+
+# Cache
+.cache/
+.nyc_output/
+coverage/
+*.tsbuildinfo
+
+# OS and editor specific files
 .DS_Store
+Thumbs.db
+
+# IDE and editor directories
+.vscode/
+.idea/
+
+# Deployment configuration files
+.deploy/
+.deploy_git/
+
+# CI/CD configuration and cache directories
+.circleci/
+.gitlab-ci.yml
+.travis.yml
+.now/
+.vercel/
+
+# Custom gitignore
+tools/
+initial.html

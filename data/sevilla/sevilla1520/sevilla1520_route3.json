@@ -1,0 +1,22 @@
+{
+    "markers": [
+        {
+            "point": "A",
+            "name": "Plaza del Duque de la Victoria",
+            "lat": "37.393151",
+            "long": "-5.996062"
+        },
+        {
+            "point": "B",
+            "name": "Plaza San Francisco",
+            "lat": "37.388640",
+            "long": "-5.994202"
+        },
+        {
+            "point": "C",
+            "name": "Palacio Arzobispal",
+            "lat": "37.386301",
+            "long": "-5.992256"
+        }
+    ]
+}
