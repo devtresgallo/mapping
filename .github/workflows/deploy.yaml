@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # O la rama que uses para desarrollo
+      - main
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # O la versión que prefieras
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -25,4 +25,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .  # La carpeta raíz donde se encuentra tu index.html
+          publish_dir: .
