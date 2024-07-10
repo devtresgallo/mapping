@@ -26,7 +26,12 @@ $(function () {
     ///////// Variable declaration /////////
     var layerMap, subLayers = {};
     var imageLayer;
-    var layersControl;
+    var layersControl = {};
+    var markers = null, 
+        route1 = null, 
+        route2 = null, 
+        route3 = null, 
+        route4 = null;
 
     ///////// Adding markers and routes /////////
     loadLayers();
@@ -59,15 +64,15 @@ $(function () {
 
     async function loadLayers() {
         try {
-            const [markers, route1, route2, route3, route4] = await Promise.all([
+            [markers, route1, route2, route3, route4, imageLayer] = await Promise.all([
                 addMarkers(dataFolder + mapName + "_markers.json", ""),
                 addRoute(dataFolder + mapName + "_route1-1.json", "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route1-2.json", "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route1-3.json", "blue", "blue"),
-                addRoute(dataFolder + mapName + "_route2.json", "red", "red")
+                addRoute(dataFolder + mapName + "_route2.json", "red", "red"),
+                imageLayer = insertImageRef("media/sevilla.jpg")
             ]);
     
-            imageLayer = insertImageRef("media/sevilla.jpg");
             layerMap = L.layerGroup([markers, route1, route2, route3, route4, imageLayer]);
             
             subLayers = {
@@ -175,5 +180,55 @@ $(function () {
             return null;            
         }
         
+    }
+
+    window.addEventListener('hashchange', () => {
+        var hash = location.hash.substring(1);
+        showHideLayers(hash);
+    });
+
+    function hideLayer(layer){
+        if(map.hasLayer(layer)){
+            map.removeLayer(layer);
+        }
+    }
+
+    function showLayer(layer){
+        if(!map.hasLayer(layer)){
+            map.addLayer(layer);
+        }
+    }
+
+    function showHideLayers(hashValue){
+        switch (hashValue) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+                showLayer(route1);
+                hideLayer(route2);
+                hideLayer(route3);
+                hideLayer(route4);                
+                break;
+            case "5":
+                hideLayer(route1);
+                showLayer(route2);
+                hideLayer(route3);
+                hideLayer(route4);                
+                break;
+            case "6":
+            case "7":
+                hideLayer(route1);
+                hideLayer(route2);
+                showLayer(route3);
+                hideLayer(route4);                
+                break;
+            default:
+                hideLayer(route1);
+                hideLayer(route2);
+                hideLayer(route3);
+                hideLayer(route4);
+                break;
+        }
     }
 });
