@@ -108,8 +108,8 @@ $(function () {
                 var _myIcon = icon;
                 if(icon.substring(0,3) == "i8-"){
                     var customIcon = L.icon({
-                        iconUrl: "markers/images/" + icon + ".png",
-                        shadowUrl: "markers/images/markers_shadow.png",
+                        iconUrl: "../markers/images/" + icon + ".png",
+                        shadowUrl: "../markers/images/markers_shadow.png",
                         iconSize: [24, 24],
                         shadowSize: [35, 16],
                         shadowAnchor: [12, 6]
