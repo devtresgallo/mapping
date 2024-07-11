@@ -8,14 +8,8 @@
 $(function () {
 
     const mapName = "sevilla1652";
-    const dataFolder = "data/sevilla/" + mapName.toLowerCase() + "/";
-    
-    var osmBaseMap = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-    L.tileLayer(osmBaseMap, {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> '
-    }).addTo(map);
+    const dataFolder = "../data/sevilla/" + mapName.toLowerCase() + "/";
+    const mediaFolder = "../media/";
 
     ///////////////////// Vertical, Horizontal
     var topLeft = L.latLng(37.40787, -6.00172),
@@ -25,7 +19,7 @@ $(function () {
 
     ///////// Variable declaration /////////
     var layerMap, subLayers = {};
-    var imageLayer;
+    var imageLayer = null;
     var layersControl = {};
     var markers = null, 
         route1 = null, 
@@ -38,30 +32,6 @@ $(function () {
 
     ///////// Functions /////////
 
-    function insertImageRef(url){
-
-        var latLngBounds = L.latLngBounds(topLeft, botRight);
-        map.fitBounds(latLngBounds);
-            
-        // layer = L.imageOverlay.rotated(url,topLeft,topRight,botLeft,{
-        //     opacity: 0.5,
-        //     interactive: true
-        // }).addTo(map);
-
-        layer = L.distortableImageOverlay(url, {
-            opacity: 0.5,
-            mode: 'lock',
-            corners: [
-                topLeft, 
-                topRight,
-                botLeft, 
-                botRight
-            ]
-        });
-        // layer.setOpacity(0.5);
-        return layer;
-    }
-
     async function loadLayers() {
         try {
             [markers, route1, route2, route3, route4, imageLayer] = await Promise.all([
@@ -70,7 +40,7 @@ $(function () {
                 addRoute(dataFolder + mapName + "_route1-2.json", "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route1-3.json", "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route2.json", "red", "red"),
-                imageLayer = insertImageRef("media/sevilla.jpg")
+                insertImageRef(mediaFolder + "sevilla.jpg")
             ]);
     
             layerMap = L.layerGroup([markers, route1, route2, route3, route4, imageLayer]);
@@ -87,9 +57,37 @@ $(function () {
             layersControl = L.control.layers(null, subLayers).addTo(map);
 
             layerMap.addTo(map);
+
         } catch (error) {
             console.error('Error al cargar las rutas: ', error);
         }
+    }    
+
+    async function insertImageRef(url){
+        try {
+            var latLngBounds = L.latLngBounds(topLeft, botRight);
+            map.fitBounds(latLngBounds);
+
+            var layerGroup = L.featureGroup();
+
+            var imglayer = L.distortableImageOverlay(url, {
+                opacity: 0.5,
+                mode: 'lock',
+                corners: [
+                    topLeft, 
+                    topRight,
+                    botLeft, 
+                    botRight
+                ]
+            });
+
+            layerGroup.addLayer(imglayer);
+
+            return layerGroup;
+
+        } catch (error) {
+            console.error('Error al añadir imagen', error);
+        }        
     }
 
     async function addMarkers(file, markerColor){
@@ -108,8 +106,8 @@ $(function () {
                 var _myIcon = icon;
                 if(icon.substring(0,3) == "i8-"){
                     var customIcon = L.icon({
-                        iconUrl: "markers/images/" + icon + ".png",
-                        shadowUrl: "markers/images/markers_shadow.png",
+                        iconUrl: "../markers/images/" + icon + ".png",
+                        shadowUrl: "../markers/images/markers_shadow.png",
                         iconSize: [24, 24],
                         shadowSize: [35, 16],
                         shadowAnchor: [12, 6]
@@ -202,6 +200,10 @@ $(function () {
     function showHideLayers(hashValue){
         switch (hashValue) {
             case "1":
+                hideLayer(route1);
+                hideLayer(route2);
+                hideLayer(route3);
+                hideLayer(route4);
             case "2":
             case "3":
             case "4":
@@ -224,10 +226,6 @@ $(function () {
                 hideLayer(route4);                
                 break;
             default:
-                hideLayer(route1);
-                hideLayer(route2);
-                hideLayer(route3);
-                hideLayer(route4);
                 break;
         }
     }

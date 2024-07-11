@@ -5,9 +5,9 @@ $(window).on('load', function() {
   const CHAPTER_ZOOM = 15;
 
   // First, try reading Options.csv
-  $.get('csv/Options.csv', function(options) {
+  $.get('../csv/Options.csv', function(options) {
 
-    $.get('csv/Chapters.csv', function(chapters) {
+    $.get('../csv/Chapters.csv', function(chapters) {
       initMap(
         $.csv.toObjects(options),
         $.csv.toObjects(chapters)
