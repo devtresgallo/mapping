@@ -203,11 +203,11 @@ $(function () {
     function showHideLayers(hashValue){
         switch (hashValue) {
             case "1":
-                hideLayer(route1);
-                hideLayer(route2);
-                hideLayer(route3);
-                hideLayer(route4);
-                hideLayer(route5);
+                showLayer(route1);
+                showLayer(route2);
+                showLayer(route3);
+                showLayer(route4);
+                showLayer(route5);
             case "2":
             case "3":
                 showLayer(route1);
