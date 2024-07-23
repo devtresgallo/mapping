@@ -26,7 +26,7 @@ body { margin: 0; padding: 0; }
     width: 75px;
     padding: 20px;
     text-align: center;
-    top: 38vh;
+    top: calc(30vh + 65px);
     right: 10px;
     z-index: 998;
 }
