@@ -47,6 +47,11 @@
 </head>
 
 <body>
+  <button type="button" class="collapsible"><i class="fa-solid fa-eye-low-vision"></i></button>
+  <div class="opacity-ctrl">
+    <input type="range" style="writing-mode: vertical-lr; direction: rtl" id="sldOpacity" min='0' max='1' step='0.1' value='1'>
+    <p class="opc-value"><span id="img-opacity">100%</span></p>
+  </div>
 
   <div id="title">
     <div id="logo"></div>
@@ -61,13 +66,14 @@
 
   <div class="loader">Loading...</div>
 
-  <div id="map"></div>
+  <div id="map">
+  </div>
 
   <script type="text/javascript">
     // Create the Leaflet map with a generic start point
     var map = L.map('map', {
       center: [37.39, -5.9922],
-      zoom: 15,
+      zoom: 14,
       scrollWheelZoom: true,
       zoomControl: false,
       tap: false
@@ -82,12 +88,14 @@
   <script src="../markers/leaflet.extra-markers.min.js"></script>
   <script src="../scripts/io-rotated/Leaflet.ImageOverlay.Rotated.js"></script>
 
-  <script type="text/javascript" src="../google-doc-url.js"></script>
+  <script type="text/javascript" src="google-doc-url.js"></script>
   <script type="text/javascript" src="../scripts/constants.js"></script>
   <script type="text/javascript" src="../scripts/jquery.csv.js"></script>
-  <script type="text/javascript" src="../scripts/storymap.js"></script>
-
-  <script src="../scripts/sevilla1652.js"></script>
-
+  
+  <script type="text/javascript" src="storymap.js"></script>
+  <script type="text/javascript" src="../scripts/mapping.js"></script>
+  <script type="text/javascript" src="sevilla1652.js"></script>
+  
+  <script type="text/javascript" src="../scripts/scripts.js"></script>
 </body>
 </html>
