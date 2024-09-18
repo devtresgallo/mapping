@@ -1,7 +1,8 @@
 /* Grupo Mundus I+D+i
  * Universidad de Cantabria
  * Año 2024
- * Proyecto: Revueltas y conflictos Sevilla y México
+ * Proyecto: La ciudad en acción: Resistenctias, (Re)significaciones del orden 
+ *           y Cultura Política en la Monarquía Hispánica
  * Autoría: Daniel Tresgallo – https://github.com/devtresgallo/
  */
 
@@ -69,7 +70,7 @@ $(function () {
             default:
                 break;
         }
-    }
+    }   
 
     // Slider opacidad //
     $("#sldOpacity").on('change', function(){

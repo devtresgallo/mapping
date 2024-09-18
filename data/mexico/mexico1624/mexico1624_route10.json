@@ -1,0 +1,17 @@
+{
+    "type": "module",
+    "markers": [
+        {
+            "point": "",
+            "name": "Calle de la Acequia",
+            "lat": 19.430850,
+            "long": -99.127841
+        },
+        {
+            "point": "B",
+            "name": "",
+            "lat": 19.431700,
+            "long": -99.132281
+        }
+    ]
+}

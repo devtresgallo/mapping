@@ -1,0 +1,156 @@
+{
+    "markers": [
+        {
+            "icon": "fa-house-user",
+            "color": "",
+            "name": "Casa profesa de los jesuitas",
+            "lat": 19.433645,
+            "long": -99.136345,
+            "desc": ""
+        },
+        {
+            "icon": "fa-church",
+            "color": "red",
+            "name": "Iglesia franciscana de San José de los Naturales",
+            "lat": 19.433692,
+            "long": -99.140084,
+            "desc": ""
+        },
+        {
+            "icon": "fa-place-of-worship",
+            "color": "red",
+            "name": "Convento de Santo Domingo",
+            "lat": 19.438936,
+            "long": -99.133749,
+            "desc": ""
+        },
+        {
+            "icon": "fa-church",
+            "color": "red",
+            "name": "Iglesia de Santa Catalina",
+            "lat": 19.440967,
+            "long": -99.132843,
+            "desc": ""
+        },
+        {
+            "icon": "fa-church",
+            "color": "red",
+            "name": "Iglesia de la Veracruz",
+            "lat": 19.436806,
+            "long": -99.142546,
+            "desc": "El palacio del marqués estaba protegido por dos pequeños cañones de mano y «cien soldados arcabuceros y otros infantes con las espadas desnudas, rodelas y broqueles»"
+        },
+        {
+            "icon": "fa-church",
+            "color": "red",
+            "name": "Iglesia de San Agustín",
+            "lat": 19.429727,
+            "long": -99.136422,
+            "desc": ""
+        },
+        {
+            "icon": "fa-place-of-worship",
+            "color": "orange-dark",
+            "name": "Convento de La Merced",
+            "lat": 19.429443,
+            "long": -99.127841,
+            "desc": "Las calles estaban cerradas y guardadas por «artilleros o soldados muy a guisa de pelear». En total había 6 piezas de artillería en las bocas de las calles de la Feria"
+        },
+        {
+            "icon": "fa-church",
+            "color": "red",
+            "name": "Iglesia del Carmen",
+            "lat": 19.440892,
+            "long": -99.129342,
+            "desc": ""
+        },
+        {
+            "icon": "fa-church",
+            "color": "violet",
+            "name": "Iglesia de Montserrat",
+            "lat": 19.426149,
+            "long": -99.137225,
+            "desc": ""
+        },
+        {
+            "icon": "fa-church",
+            "color": "red",
+            "name": "Iglesia de San Juan",
+            "lat": 19.436971,
+            "long": -99.143665,
+            "desc": ""
+        },
+        {
+            "icon": "fa-hospital",
+            "color": "green-dark",
+            "name": "Hospital de la Concepción",
+            "lat": 19.428939,
+            "long": -99.133695,
+            "desc": ""
+        },
+        {
+            "icon": "fa-map",
+            "color": "cyan",
+            "name": "Barrio de indios de Santiago Tlatelolco",
+            "lat": 19.451596,
+            "long": -99.138259,
+            "desc": ""
+        },
+        {
+            "icon": "fa-map",
+            "color": "orange",
+            "name": "Barrio de indios de San Juan de Tenochtitlán",
+            "lat": 19.429602,
+            "long": -99.143402,
+            "desc": ""
+        },
+        {
+            "icon": "fa-church",
+            "color": "red",
+            "name": "Catedral de Ciudad de México",
+            "lat": 19.434181,
+            "long": -99.133152,
+            "desc": ""
+        },
+        {
+            "icon": "fa-mosque",
+            "color": "green",
+            "name": "Palacio virreinal, casas reales",
+            "lat": 19.432646,
+            "long": -99.131915,
+            "desc": ""
+        },
+        {
+            "icon": "fa-users",
+            "color": "yellow",
+            "name": "Plaza de Santo Domingo",
+            "lat": 19.437941,
+            "long": -99.133778,
+            "desc": ""
+        },
+        {
+            "icon": "fa-users",
+            "color": "black",
+            "name": "Plaza del volador",
+            "lat": 19.431150,
+            "long": -99.131781,
+            "desc": ""
+        },
+        {
+            "icon": "fa-place-of-worship",
+            "color": "violet",
+            "name": "Cabildo",
+            "lat": 19.431841,
+            "long": -99.133871,
+            "desc": ""
+        },
+        {
+            "icon": "fa-hospital",
+            "color": "green-dark",
+            "name": "Hospital Real de Indios",
+            "lat": 19.431528,
+            "long": -99.141682,
+            "desc": ""
+        }
+    ]
+}
