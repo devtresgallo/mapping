@@ -284,7 +284,7 @@ $(window).on('load', function() {
     }
     pixelsAbove.push(Number.MAX_VALUE);
 
-    $('div#contents').scroll(function() {
+    $('div#contents').on("scroll", function() {
       var currentPosition = $(this).scrollTop();
 
       // Make title disappear on scroll
@@ -393,12 +393,11 @@ $(window).on('load', function() {
       }
     });
 
-
     $('#contents').append(" \
       <div id='space-at-the-bottom'> \
         <a href='#top'>  \
           <i class='fa fa-chevron-up'></i></br> \
-          <small>Top</small>  \
+          <small>Subir</small>  \
         </a> \
       </div> \
     ");

@@ -8,7 +8,7 @@
 
 $(function () {
 
-    const mapName = "mexico1624";
+    const mapName = "mexico1692";
     const dataFolder = "../data/mexico/" + mapName.toLowerCase() + "/";
     const suffix = ".json";
 
@@ -20,8 +20,9 @@ $(function () {
 
     ///////// Variable declaration /////////
     var layerMap, subLayers = {};
-    var markers, imageLayer, plazaMayor, churches, plateros = null;
-    var route7, route9, route9_2, route10, route10_2, route10_3 = null;
+    var markers, imageLayer = null;
+    var firePalacio, fireMarquesValle, fireCasaMoneda = null;
+    var nobleHorse, route1, routeNoble, routeClerics = null;
     var layersControl = {};
 
     ///////// Adding markers and routes /////////
@@ -31,23 +32,26 @@ $(function () {
     ///////// Functions /////////
 
     async function loadLayers() {
+        var firePalacioText = '"La muchedumbre juntó entonces un gran número de objetos de madera que pudieron reunir frente al palacio y les prendieron fuego."';
+        var fireMarquesText = 'Casa del Marqués del Valle';
+
         try {
-            [markers, imageLayer, plazaMayor, plazaVolador, churches, plateros, 
-                route7, route9, route9_2, route10, route10_2, route10_3] 
+            [markers, imageLayer, plazaMayor, plazaVolador, firePalacio, fireMarquesValle, fireCasaMoneda, nobleHorse,
+                route1, routeNoble, routeClerics] 
             = await Promise.all([
                 addMarkers(dataFolder + mapName + "_markers" + suffix, ""),
                 insertImageRef(mediaFolder + "mexico.jpg"),
-                plazaCircle(19.432621, -99.133126, 'red', '#f03', 50),
-                plazaCircle(19.431150, -99.131781, 'orange', '#f50', 75),
-                churchesCircles(),
-                platerosCircles(),
-
-                addRoute(dataFolder + mapName + "_route7" + suffix, "blue", "blue"),
-                addRoute(dataFolder + mapName + "_route9" + suffix, "green", "green"),
-                addRoute(dataFolder + mapName + "_route9-2" + suffix, "darkgreen", "darkgreen"),
-                addRoute(dataFolder + mapName + "_route10" + suffix, "red", "red"),
-                addRoute(dataFolder + mapName + "_route10_2" + suffix, "red", "red"),
-                addRoute(dataFolder + mapName + "_route10_3" + suffix, "red", "red")
+                plazaCircle(19.432621, -99.133126, 'red', '#f03', 100),
+                plazaCircle(19.431150, -99.131781, 'red', '#f03', 50),
+                
+                setFire(19.432546, -99.131915, firePalacioText),
+                setFire(19.435267, -99.136124, fireMarquesText),
+                setFire(19.433450, -99.130304, "Casa de la Moneda"),
+                addMarkerNoble(19.433100, -99.133126, "horse", "purple"),
+                
+                addRoute(dataFolder + mapName + "_route1" + suffix, "red", "red"),
+                addRoute(dataFolder + mapName + "_routeNoble" + suffix, "purple", "purple"),
+                addRoute(dataFolder + mapName + "_routeClerics" + suffix, "blue", "blue")
             ]);
     
             layerMap = L.layerGroup([markers, imageLayer]);
@@ -63,15 +67,15 @@ $(function () {
         } catch (error) {
             console.error('Error al cargar las capas: ', error);
         }
-    }    
-
+    }
+    
     async function insertImageRef(url){
         try {
             var latLngBounds = L.latLngBounds(topLeft, botRight);
             map.fitBounds(latLngBounds);
-
+            
             var imageLayerGroup = L.featureGroup();
-
+            
             var imglayer = L.distortableImageOverlay(url, {
                 corners: [
                     topLeft, 
@@ -81,16 +85,16 @@ $(function () {
                 ],
                 mode: 'freeRotate',
             }).addTo(map);
-
+            
             imageLayerGroup.addLayer(imglayer);
-
+            
             return imageLayerGroup;
-
+            
         } catch (error) {
             console.error('Error al añadir imagen', error);
         }        
     }
-
+    
     async function addMarkers(file, markerColor){
         try {
             const response = await fetch(file);
@@ -99,7 +103,7 @@ $(function () {
             if(!responseData.markers || !Array.isArray(responseData.markers)){
                 console.error('Formato de archivo JSON no válido');
             } 
-                
+            
             const markers = responseData.markers;
             const layerGroup = L.featureGroup();
 
@@ -126,18 +130,18 @@ $(function () {
                     
                 }
                 L.marker([lat, long], {icon: _myIcon})
-                        .bindPopup(`<h5>${name}</h5>` + (desc ? `<p>${desc}</p>` : ""))
-                        .addTo(layerGroup);
-            });
-
+                    .bindPopup(`<h5>${name}</h5>` + (desc ? `<p>${desc}</p>` : ""))
+                    .addTo(layerGroup);
+                });
+                    
             return layerGroup;
-
+                    
         } catch(error){
             console.error('Error al cargar el archivo JSON de marcadores:', error);
             return null;
         }
     }
-
+    
     async function addRoute(file, routeColor, markerColor){
         try {
             const response = await fetch(file);
@@ -198,64 +202,45 @@ $(function () {
         }
     }
 
-    async function platerosCircles(){
+    async function addMarkerNoble(_lat, _long, _icon, _color){
         try {
-            const polygonLayer = L.featureGroup();
-
-            // San José de los Naturales
-            L.circle([19.433692, -99.140084], {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.5,
-                radius: 50
-            }).addTo(polygonLayer);
-
-            // Casa profesa jesuítas
-            L.circle([19.433645, -99.136345], {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.5,
-                radius: 50
-            }).addTo(polygonLayer);
-
-            return polygonLayer
+            const layerGroup = L.featureGroup();
+    
+            var _extraMarker = L.ExtraMarkers.icon({
+                icon: "fa-" + _icon,
+                markerColor: (_color != "" ? _color : markerColor),
+                shape: 'circle',
+                prefix: 'fa'
+            });
+            _myIcon = _extraMarker;
+            L.marker([_lat, _long], {icon: _myIcon})
+            .addTo(layerGroup);
+    
+            return layerGroup;
+            
         } catch (error) {
-            console.error('Error al insertar polígonos de "virrey erege":', error);
+            console.error('Error al insertar marcador noble: ', error);
             return null;
         }
     }
 
-    async function churchesCircles(){
+    async function setFire(lat, long, popupText){
         try {
             const polygonLayer = L.featureGroup();
 
-            const coords = [
-                [19.438936, -99.133749], // Santo Domingo
-                [19.433692, -99.140084], // San José Naturales
-                [19.440967, -99.132843], // Santa Catalina
-                [19.436806, -99.142546], // Veracruz
-                [19.429727, -99.136422], // San Agustín
-                [19.429443, -99.127841], // Convento Merced
-                [19.440892, -99.129342], // Carmen
-                [19.436971, -99.143665], // San Juan
-                [19.428939, -99.133695], // Hospital Concepción
-                [19.431528, -99.141682]  // Hospital Real
-            ];
-
-            coords.forEach(latlong => {               
-                L.circle(latlong, {
-                    color: 'gold',
-                    fillColor: '#ffa500',
-                    fillOpacity: 0.5,
-                    radius: 50
-                }).addTo(polygonLayer); 
+            var fireIcon = L.icon({
+                iconUrl: '../media/flame-icon.png',
+                iconSize: [46, 61.5],
+                popupAnchor: [-3, -76],
             });
+        
+            var fireMarker = L.marker([lat, long], {icon: fireIcon}).addTo(polygonLayer);
+            fireMarker.bindPopup(popupText);
 
             return polygonLayer;
-
         } catch (error) {
-            console.error('Error al insertar polígonos de iglesias:', error);
-            return null;            
+            console.error('Error al insertar polígonos: ', error);
+            return null;
         }
     }
 
@@ -281,7 +266,7 @@ $(function () {
         biblio.forEach(({author, title, source_auth, source, ext_data}) => {
             biblioTxt += "<p>"+author+". ";
             if(title != ""){
-                biblioTxt += "\"" + title +"\" ";
+                biblioTxt += "\"" + title +"\".<br>";
             }
             if(source_auth != ""){
                 biblioTxt += " en "+ source_auth +". ";
@@ -320,72 +305,72 @@ $(function () {
         clearMapElements();
         setTimeout(() => {
             switch (hash) {
-                case "#1":
-                    dateEvents.style.opacity = "0";
-                    break;
                 case "#2":
-                    dateEvents.innerHTML = "11 y 12/01/1624";
+                    dateEvents.innerHTML = "06/06/1692";
                     dateEvents.style.opacity = "1";
-                    plazaMayor.addTo(map);
                     break;
                 case "#3":
-                    dateEvents.innerHTML = "13/01/1624";
+                    dateEvents.innerHTML = "07/06/1692";
                     dateEvents.style.opacity = "1";
-                    break;
-                case "#8":
-                case "#11":
-                    plazaMayor.radius = 100;
-                    plazaMayor.addTo(map);
                     break;
                 case "#4":
-                    dateEvents.innerHTML = "14/01/1624";
-                    overlay.style.backgroundColor = "rgba(25, 25, 112, 0.6)";
+                    dateEvents.innerHTML = "08/06/1692";
                     dateEvents.style.opacity = "1";
-                    overlay.style.opacity = "1";                
+                    route1.addTo(map);               
                     break;
                 case "#5":
-                    plateros.addTo(map);
+                    firePalacio.addTo(map);
+                    nobleHorse.bindPopup('"Mientras tanto, los insurrectos apedrearon a un noble a caballo que trató de adentrarse en la plaza para intentar reprimirlos, así como al cochero del arzobispo."');
+                    nobleHorse.addTo(map);
+                    routeNoble.addTo(map);
                     break;
                 case "#6":
-                    churches.addTo(map);
+                    plazaMayor.addTo(map);
+                    plazaVolador.addTo(map);
                     break;
                 case "#7":
-                    route7.addTo(map);
+                    firePalacio.addTo(map);
+                    fireMarquesValle.addTo(map);
+                    fireCasaMoneda.addTo(map);
                     break;
-                case "#9":
-                    route9.addTo(map);
-                    route9_2.addTo(map);
+                case "#8":
+                    clearLayer(firePalacio);
+                    routeClerics.addTo(map);
                     break;
                 case "#10":
-                    route10.addTo(map);
-                    route10_2.addTo(map);
-                    route10_3.addTo(map);
-                    plazaVolador.addTo(map)
+                    plazaMayor.addTo(map);
+                    routeNoble.addTo(map);                    
+                    overlay.style.backgroundColor = "rgba(25, 25, 112, 0.6)";
+                    overlay.style.opacity = "1";
                     break;
-
                 default:
                     overlay.style.opacity = "0";
-                    dateEvents.style.opacity = "0";
                     clearMapElements();
                     break;
             }
         }, 1000);
 
         function clearMapElements(){
+            clearLayer(route1);
             clearLayer(plazaMayor);
             clearLayer(plazaVolador);
-            clearLayer(churches);
-            clearLayer(plateros);
-            clearLayer(route7);
-            clearLayer(route9);
-            clearLayer(route9_2);
-            clearLayer(route10);
-            clearLayer(route10_2);
-            clearLayer(route10_3);
+            clearLayer(fireMarquesValle);
+            clearLayer(fireCasaMoneda);
+            clearLayer(nobleHorse);
+            clearLayer(routeNoble);
+            clearLayer(routeClerics);
+            firePalacioPopup();
         }
 
         function clearLayer(layer){
             map.removeLayer(layer);
+        }
+
+        function firePalacioPopup(){
+            var popupText = (hash.substring(1) < 7 ) ? 
+                '"La muchedumbre juntó entonces un gran número de objetos de madera que pudieron reunir frente al palacio y les prendieron fuego."' :
+                'El palacio virreinal acabó finalmente reducido a escombros';
+            firePalacio.bindPopup(popupText);
         }
     })
 });

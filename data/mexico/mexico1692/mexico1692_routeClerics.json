@@ -1,0 +1,23 @@
+{
+    "type": "module",
+    "markers": [
+        {
+            "point": "A",
+            "name": "",
+            "lat": 19.434181,
+            "long": -99.133152
+        },
+        {
+            "point": "B",
+            "name": "",
+            "lat": 19.434081,
+            "long": -99.132152
+        },
+        {
+            "point": "",
+            "name": "\"Algunos clérigos jesuitas sacaron en procesión el Santísimo Sacramento por la plaza para intentar aplacar los ánimos de la multitud (...)\"",
+            "lat": 19.433275,
+            "long": -99.132252
+        }
+    ]
+}
