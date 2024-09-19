@@ -252,8 +252,7 @@ $(function () {
 
         const biblioDiv = document.querySelector("#biblioModal"); 
         var biblioTxt = "";
-        biblioDiv.querySelector(".modal-title").innerHTML = "Bibliografía";  
-        console.log(biblioDiv);
+        biblioDiv.querySelector(".modal-title").innerHTML = "Bibliografía";
 
         const response = await fetch(mapName + "_bibliography" + suffix);
         const responseData = await response.json();
