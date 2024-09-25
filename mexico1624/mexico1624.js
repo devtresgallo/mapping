@@ -317,58 +317,56 @@ $(function () {
         const hash = window.location.hash;
 
         clearMapElements();
-        setTimeout(() => {
-            switch (hash) {
-                case "#1":
-                    dateEvents.style.opacity = "0";
-                    break;
-                case "#2":
-                    dateEvents.innerHTML = "11 y 12/01/1624";
-                    dateEvents.style.opacity = "1";
-                    plazaMayor.addTo(map);
-                    break;
-                case "#3":
-                    dateEvents.innerHTML = "13/01/1624";
-                    dateEvents.style.opacity = "1";
-                    break;
-                case "#8":
-                case "#11":
-                    plazaMayor.radius = 100;
-                    plazaMayor.addTo(map);
-                    break;
-                case "#4":
-                    dateEvents.innerHTML = "14/01/1624";
-                    overlay.style.backgroundColor = "rgba(25, 25, 112, 0.6)";
-                    dateEvents.style.opacity = "1";
-                    overlay.style.opacity = "1";                
-                    break;
-                case "#5":
-                    plateros.addTo(map);
-                    break;
-                case "#6":
-                    churches.addTo(map);
-                    break;
-                case "#7":
-                    route7.addTo(map);
-                    break;
-                case "#9":
-                    route9.addTo(map);
-                    route9_2.addTo(map);
-                    break;
-                case "#10":
-                    route10.addTo(map);
-                    route10_2.addTo(map);
-                    route10_3.addTo(map);
-                    plazaVolador.addTo(map)
-                    break;
+        switch (hash) {
+            case "#1":
+                dateEvents.style.opacity = "0";
+                break;
+            case "#2":
+                dateEvents.innerHTML = "11 y 12/01/1624";
+                dateEvents.style.opacity = "1";
+                plazaMayor.addTo(map);
+                break;
+            case "#3":
+                dateEvents.innerHTML = "13/01/1624";
+                dateEvents.style.opacity = "1";
+                break;
+            case "#8":
+            case "#11":
+                plazaMayor.radius = 100;
+                plazaMayor.addTo(map);
+                break;
+            case "#4":
+                dateEvents.innerHTML = "14/01/1624";
+                overlay.style.backgroundColor = "rgba(25, 25, 112, 0.6)";
+                dateEvents.style.opacity = "1";
+                overlay.style.opacity = "1";                
+                break;
+            case "#5":
+                plateros.addTo(map);
+                break;
+            case "#6":
+                churches.addTo(map);
+                break;
+            case "#7":
+                route7.addTo(map);
+                break;
+            case "#9":
+                route9.addTo(map);
+                route9_2.addTo(map);
+                break;
+            case "#10":
+                route10.addTo(map);
+                route10_2.addTo(map);
+                route10_3.addTo(map);
+                plazaVolador.addTo(map)
+                break;
 
-                default:
-                    overlay.style.opacity = "0";
-                    dateEvents.style.opacity = "0";
-                    clearMapElements();
-                    break;
-            }
-        }, 1000);
+            default:
+                overlay.style.opacity = "0";
+                dateEvents.style.opacity = "0";
+                clearMapElements();
+                break;
+        }
 
         function clearMapElements(){
             clearLayer(plazaMayor);
