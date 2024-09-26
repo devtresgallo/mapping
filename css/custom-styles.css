@@ -178,3 +178,7 @@ body { margin: 0; padding: 0; }
 .leaflet-popup-content {
     font-size: 13px !important;
 }
+
+#container0{
+    margin-top: 140px;
+}
