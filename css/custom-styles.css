@@ -87,15 +87,23 @@ body { margin: 0; padding: 0; }
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: grayscale(100%);
 }
 .btn-custom:hover{
     color: #fff;
     font-size: 2.5em;
-    transition: font-size 0.5s;
+    filter: grayscale(0%);
 }
 .btn-custom:active{
     color: #fff !important;
     font-weight: bold;
+}
+.btn-disabled{
+    filter: grayscale(100%);
+}
+a[href="#"]:hover{
+    color: #fff;
+    filter: grayscale(100%);
 }
 
 .btn-sevilla1520{
@@ -181,4 +189,8 @@ body { margin: 0; padding: 0; }
 
 #container0{
     margin-top: 140px;
+}
+
+.leaflet-control-container{
+    font-size: 12px;
 }

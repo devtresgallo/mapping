@@ -1,190 +1,252 @@
 {
     "markers": [
         {
-            "point": "1",
+            "icon": "",
+            "color": "",
             "name": "Real Alcázar",
             "lat": 37.383075,
-            "long": -5.990454
+            "long": -5.990454,
+            "desc": ""
         },
         {
-            "point": "2",
+            "icon": "",
+            "color": "",
             "name": "Torre de la Plata",
             "lat": 37.383302,
-            "long": -5.995718
+            "long": -5.995718,
+            "desc": ""
         },
         {
-            "point": "3",
+            "icon": "",
+            "color": "",
             "name": "Torre del Oro",
             "lat": 37.382623,
-            "long": -5.996404
+            "long": -5.996404,
+            "desc": ""
         },
         {
-            "point": "4",
+            "icon": "",
+            "color": "",
             "name": "Puerta de Jerez",
             "lat": 37.382628,
-            "long": -5.993245
+            "long": -5.993245,
+            "desc": ""
         },
         {
-            "point": "5",
+            "icon": "",
+            "color": "",
             "name": "Casa de Contratación",
             "lat": 37.383896,
-            "long": -5.992244
+            "long": -5.992244,
+            "desc": ""
         },
         {
-            "point": "6",
+            "icon": "",
+            "color": "",
             "name": "Palacio Arzobispal",
             "lat": 37.386397,
-            "long": -5.992250
+            "long": -5.992250,
+            "desc": ""
         },
         {
-            "point": "7",
+            "icon": "",
+            "color": "",
             "name": "Convento Madre de Dios",
             "lat": 37.388213,
-            "long": -5.989050
+            "long": -5.989050,
+            "desc": ""
         },
         {
-            "point": "8",
+            "icon": "",
+            "color": "",
             "name": "Plaza San Francisco",
             "lat": 37.388644,
-            "long": -5.994561
+            "long": -5.994561,
+            "desc": ""
         },
         {
-            "point": "9",
+            "icon": "",
+            "color": "",
             "name": "Plaza del Salvador",
             "lat": 37.390226,
-            "long": -5.993261
+            "long": -5.993261,
+            "desc": ""
         },
         {
-            "point": "10",
+            "icon": "",
+            "color": "",
             "name": "Plaza San Román",
             "lat": 37.394741,
-            "long": -5.986584
+            "long": -5.986584,
+            "desc": ""
         },
         {
-            "point": "11",
+            "icon": "",
+            "color": "",
             "name": "Puerta de la Macarena",
             "lat": 37.402792,
-            "long": -5.989267
+            "long": -5.989267,
+            "desc": ""
         },
         {
-            "point": "12",
+            "icon": "",
+            "color": "",
             "name": "Plaza de Santa Catalina",
             "lat": 37.393596,
-            "long": -5.988159
+            "long": -5.988159,
+            "desc": ""
         },
         {
-            "point": "13",
+            "icon": "",
+            "color": "",
             "name": "Antigua plaza de la Caça?",
             "lat": 37.390359,
-            "long": -5.991230
+            "long": -5.991230,
+            "desc": ""
         },
         {
-            "point": "14",
+            "icon": "",
+            "color": "",
             "name": "Encuentro con Juan Dorador",
             "lat": 37.391446,
-            "long": -5.991031
+            "long": -5.991031,
+            "desc": ""
         },
         {
-            "point": "15",
+            "icon": "",
+            "color": "",
             "name": "Encuentro con don Alonso de Guzmán y otros",
             "lat": 37.394261,
-            "long": -5.987291
+            "long": -5.987291,
+            "desc": ""
         },
         {
-            "point": "16",
+            "icon": "",
+            "color": "",
             "name": "Encuentro con Gerónimo Aguilar",
             "lat": 37.393949,
-            "long": -5.987735
+            "long": -5.987735,
+            "desc": ""
         },
         {
-            "point": "17",
+            "icon": "",
+            "color": "",
             "name": "Encuentro con Alonso G.",
             "lat": 37.394443,
-            "long": -5.986884
+            "long": -5.986884,
+            "desc": ""
         },
         {
-            "point": "18",
+            "icon": "",
+            "color": "",
             "name": "Plaza del Duque - Antigua casa del duque de Medina Sidonia",
             "lat": 37.393123,
-            "long": -5.995900
+            "long": -5.995900,
+            "desc": ""
         },
         {
-            "point": "19",
+            "icon": "",
+            "color": "",
             "name": "Monasterio de San Francisco",
             "lat": 37.388542,
-            "long": -5.995429
+            "long": -5.995429,
+            "desc": ""
         },
         {
-            "point": "20",
+            "icon": "",
+            "color": "",
             "name": "Postigo Jardín del Príncipe",
             "lat": 37.383602,
-            "long": -5.992116
+            "long": -5.992116,
+            "desc": ""
         },
         {
-            "point": "21",
+            "icon": "",
+            "color": "",
             "name": "Punto 21",
             "lat": 37.388998,
-            "long": -5.994248
+            "long": -5.994248,
+            "desc": ""
         },
         {
-            "point": "22",
+            "icon": "",
+            "color": "",
             "name": "Plaza de las Gradas",
             "lat": 37.386594,
-            "long": -5.993864
+            "long": -5.993864,
+            "desc": ""
         },
         {
-            "point": "23",
+            "icon": "",
+            "color": "",
             "name": "Guerrero reúne gente en el cabildo",
             "lat": 37.385766,
-            "long": -5.994565
+            "long": -5.994565,
+            "desc": ""
         },
         {
-            "point": "24",
+            "icon": "",
+            "color": "",
             "name": "Antigua Casa de la Moneda",
             "lat": 37.384867,
-            "long": -5.993242
+            "long": -5.993242,
+            "desc": ""
         },
         {
-            "point": "25",
+            "icon": "",
+            "color": "",
             "name": "\"Escuadrones en fabor de la justiçia\"",
             "lat": 37.384382,
-            "long": -5.992950
+            "long": -5.992950,
+            "desc": ""
         },
         {
-            "point": "26",
+            "icon": "",
+            "color": "",
             "name": "Alcaçar Biejo (?)",
             "lat": 37.384641,
-            "long": -5.991979
+            "long": -5.991979,
+            "desc": ""
         },
         {
-            "point": "27",
+            "icon": "",
+            "color": "",
             "name": "Entrada de Guerrero en el Alcázar",
             "lat": 37.384573,
-            "long": -5.992321
+            "long": -5.992321,
+            "desc": ""
         },
         {
-            "point": "28",
+            "icon": "",
+            "color": "",
             "name": "Armas: \"por el Rey y la Comunidad\"",
             "lat": 37.383695,
-            "long": -5.992436
+            "long": -5.992436,
+            "desc": ""
         },
         {
-            "point": "29",
+            "icon": "",
+            "color": "",
             "name": "Feria",
             "lat": 37.399114,
-            "long": -5.991729
+            "long": -5.991729,
+            "desc": ""
         },
         {
-            "point": "30",
+            "icon": "",
+            "color": "",
             "name": "Amotinados de la Feria",
             "lat": 37.399334,
-            "long": -5.991682
+            "long": -5.991682,
+            "desc": ""
         },
         {
-            "point": "31",
+            "icon": "",
+            "color": "",
             "name": "Palacio del Marqués de Algaba",
             "lat": 37.399418,
-            "long": -5.990977
+            "long": -5.990977,
+            "desc": ""
         }
     ]
 }

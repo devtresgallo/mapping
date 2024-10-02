@@ -27,7 +27,7 @@ $(function () {
 
     ///////// Adding markers and routes /////////
     loadLayers();
-    addBibliography();
+    addBibliography(mapName, suffix);
 
     ///////// Functions /////////
 
@@ -242,45 +242,6 @@ $(function () {
             console.error('Error al insertar polígonos: ', error);
             return null;
         }
-    }
-
-    async function addBibliography(){
-        $('#title').append(" \
-            <button type='button' id='btnModal' class='btn btn-info btn-biblio' \
-            data-toggle='modal' data-target='#biblioModal'>Bibliografía</button> \
-        ");
-
-        const biblioDiv = document.querySelector("#biblioModal"); 
-        var biblioTxt = "";
-        biblioDiv.querySelector(".modal-title").innerHTML = "Bibliografía";
-
-        const response = await fetch(mapName + "_bibliography" + suffix);
-        const responseData = await response.json();
-
-        if(!responseData.biblio || !Array.isArray(responseData.biblio)){
-            console.error('Formato de archivo JSON no válido');
-        }
-        
-        const biblio = responseData.biblio;
-        biblio.forEach(({author, title, source_auth, source, ext_data}) => {
-            biblioTxt += "<p>"+author+". ";
-            if(title != ""){
-                biblioTxt += "\"" + title +"\".<br>";
-            }
-            if(source_auth != ""){
-                biblioTxt += " en "+ source_auth +". ";
-            }
-            if(source != ""){
-                biblioTxt += "<i>" + source+ "</i>. "
-            }
-            biblioTxt += " " + ext_data;
-            biblioTxt += "</p>"
-            biblioDiv.querySelector(".modal-body").innerHTML = biblioTxt;
-        });
-
-        $("#btnModal").on("click", function(){
-            $("#biblioModal").modal(); 
-          });
     }
 
     // Slider opacidad //

@@ -11,43 +11,37 @@ var markers = null,
     route5 = null;
 
 ///////// Functions /////////
-async function loadLayers(dataFolder, mapName, mapImage, _corners) {
+// function insertImageRef(url, _corners) {
+//     imageLayer = L.distortableImageOverlay(url, {
+//         corners: _corners
+//     });
+//     return imageLayer;    
+// }
+
+async function insertImageRef(url, topLeft, topRight, botLeft, botRight){
     try {
-        [markers, route1, route2, route3, route4, route5, imageLayer] = await Promise.all([
-            addMarkers(dataFolder + mapName + "_markers.json", ""),
-            addRoute(dataFolder + mapName + "_route1-1.json", "blue", "blue"),
-            addRoute(dataFolder + mapName + "_route1-2.json", "blue", "blue"),
-            addRoute(dataFolder + mapName + "_route1-3.json", "blue", "blue"),
-            addRoute(dataFolder + mapName + "_route1-4.json", "blue", "blue"),
-            addRoute(dataFolder + mapName + "_route2.json", "red", "red"),
-            insertImageRef(mediaFolder + mapImage +".jpg", _corners)
-        ]);
+        var latLngBounds = L.latLngBounds(topLeft, botRight);
+        map.fitBounds(latLngBounds);
 
-        layerMap = L.layerGroup([markers, route1, route2, route3, route4, route5, imageLayer]);
-        
-        subLayers = {
-            'Markers': markers,
-            'Ruta 1': route1,
-            'Ruta 2': route2,
-            'Ruta 3': route3,
-            'Ruta 4': route4,
-            'Ruta 5': route5,
-        };
+        var imageLayerGroup = L.featureGroup();
 
-        layersControl = L.control.layers(null, subLayers).addTo(map);
+        var imglayer = L.distortableImageOverlay(url, {
+            corners: [
+                topLeft, 
+                topRight,
+                botLeft, 
+                botRight
+            ],
+            mode: 'freeRotate',
+        }).addTo(map);
 
-        layerMap.addTo(map);
+        imageLayerGroup.addLayer(imglayer);
+
+        return imageLayerGroup;
 
     } catch (error) {
-        console.error('Error al cargar las capas: ', error);
-    }
-}    
-
-function insertImageRef(url, _corners) {
-    imageLayer = L.distortableImageOverlay(url, {
-        corners: _corners
-    });
-    return imageLayer;    
+        console.error('Error al añadir imagen', error);
+    }        
 }
 
 async function addMarkers(file, markerColor){
@@ -138,4 +132,43 @@ async function addRoute(file, routeColor, markerColor){
         return null;            
     }
     
+}
+
+async function addBibliography(mapName, suffix){
+    $('#title').append(" \
+        <button type='button' id='btnModal' class='btn btn-info btn-biblio' \
+        data-toggle='modal' data-target='#biblioModal'>Bibliografía</button> \
+    ");
+
+    const biblioDiv = document.querySelector("#biblioModal"); 
+    var biblioTxt = "";
+    biblioDiv.querySelector(".modal-title").innerHTML = "Bibliografía";
+
+    const response = await fetch(mapName + "_bibliography" + suffix);
+    const responseData = await response.json();
+
+    if(!responseData.biblio || !Array.isArray(responseData.biblio)){
+        console.error('Formato de archivo JSON no válido');
+    }
+    
+    const biblio = responseData.biblio;
+    biblio.forEach(({author, title, source_auth, source, ext_data}) => {
+        biblioTxt += "<p>"+author+". ";
+        if(title != ""){
+            biblioTxt += "\"" + title +"\" ";
+        }
+        if(source_auth != ""){
+            biblioTxt += " en "+ source_auth +". ";
+        }
+        if(source != ""){
+            biblioTxt += "<i>" + source+ "</i>. "
+        }
+        biblioTxt += " " + ext_data;
+        biblioTxt += "</p>"
+        biblioDiv.querySelector(".modal-body").innerHTML = biblioTxt;
+    });
+
+    $("#btnModal").on("click", function(){
+        $("#biblioModal").modal(); 
+      });
 }

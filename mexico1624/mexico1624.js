@@ -20,34 +20,41 @@ $(function () {
 
     ///////// Variable declaration /////////
     var layerMap, subLayers = {};
-    var markers, imageLayer, plazaMayor, churches, plateros = null;
-    var route7, route9, route9_2, route10, route10_2, route10_3 = null;
+    var markers, imageLayer, plazaMayor, plazaMayorLg, churches, plateros = null;
+    var route7, route9, route9_2, route10, route10_2, route10_3, route15 = null;
+    var fireCarcel = null;
+    var fireCarcelText = "Comenzó así el incendio de la puerta norte y de las cárceles, mientras un grupo rebelde trepó a un balcón a quitar un estandarte.";
     var layersControl = {};
 
     ///////// Adding markers and routes /////////
     loadLayers();
-    addBibliography();
+    addBibliography(mapName, suffix);
 
     ///////// Functions /////////
 
     async function loadLayers() {
         try {
-            [markers, imageLayer, plazaMayor, plazaVolador, churches, plateros, 
-                route7, route9, route9_2, route10, route10_2, route10_3] 
+            [markers, imageLayer, plazaMayor, plazaMayorLg, plazaVolador, churches, plateros,
+                fireCarcel, 
+                route7, route9, route9_2, route10, route10_2, route10_3, route15] 
             = await Promise.all([
                 addMarkers(dataFolder + mapName + "_markers" + suffix, ""),
-                insertImageRef(mediaFolder + "mexico.jpg"),
-                plazaCircle(19.432621, -99.133126, 'red', '#f03', 50),
+                insertImageRef(mediaFolder + "mexico.jpg", topLeft, topRight, botLeft, botRight),
+                plazaCircle(19.432621, -99.132826, 'red', '#f03', 50),
+                plazaCircle(19.432621, -99.132826, 'red', '#f03', 100),
                 plazaCircle(19.431150, -99.131781, 'orange', '#f50', 75),
                 churchesCircles(),
                 platerosCircles(),
+                
+                setFire(19.433426, -99.131615, fireCarcelText),
 
                 addRoute(dataFolder + mapName + "_route7" + suffix, "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route9" + suffix, "green", "green"),
                 addRoute(dataFolder + mapName + "_route9-2" + suffix, "darkgreen", "darkgreen"),
                 addRoute(dataFolder + mapName + "_route10" + suffix, "red", "red"),
                 addRoute(dataFolder + mapName + "_route10_2" + suffix, "red", "red"),
-                addRoute(dataFolder + mapName + "_route10_3" + suffix, "red", "red")
+                addRoute(dataFolder + mapName + "_route10_3" + suffix, "red", "red"),
+                addRoute(dataFolder + mapName + "_route15" + suffix, "blue", "blue")
             ]);
     
             layerMap = L.layerGroup([markers, imageLayer]);
@@ -63,122 +70,6 @@ $(function () {
         } catch (error) {
             console.error('Error al cargar las capas: ', error);
         }
-    }    
-
-    async function insertImageRef(url){
-        try {
-            var latLngBounds = L.latLngBounds(topLeft, botRight);
-            map.fitBounds(latLngBounds);
-
-            var imageLayerGroup = L.featureGroup();
-
-            var imglayer = L.distortableImageOverlay(url, {
-                corners: [
-                    topLeft, 
-                    topRight,
-                    botLeft, 
-                    botRight
-                ],
-                mode: 'freeRotate',
-            }).addTo(map);
-
-            imageLayerGroup.addLayer(imglayer);
-
-            return imageLayerGroup;
-
-        } catch (error) {
-            console.error('Error al añadir imagen', error);
-        }        
-    }
-
-    async function addMarkers(file, markerColor){
-        try {
-            const response = await fetch(file);
-            const responseData = await response.json();
-
-            if(!responseData.markers || !Array.isArray(responseData.markers)){
-                console.error('Formato de archivo JSON no válido');
-            } 
-                
-            const markers = responseData.markers;
-            const layerGroup = L.featureGroup();
-
-            markers.forEach(({ icon, color, lat, long, name, desc }) => {
-                var _myIcon = icon;
-                if(icon.substring(0,3) == "i8-"){
-                    var customIcon = L.icon({
-                        iconUrl: "../markers/images/" + icon + ".png",
-                        shadowUrl: "../markers/images/markers_shadow.png",
-                        iconSize: [24, 24],
-                        shadowSize: [35, 16],
-                        shadowAnchor: [12, 6]
-                    });
-                    _myIcon = customIcon;
-                }
-                else{               
-                    var _extraMarker = L.ExtraMarkers.icon({
-                        icon: _myIcon,
-                        markerColor: (color != "" ? color: markerColor),
-                        shape: 'circle',
-                        prefix: 'fa'
-                    });
-                    _myIcon = _extraMarker;
-                    
-                }
-                L.marker([lat, long], {icon: _myIcon})
-                        .bindPopup(`<h5>${name}</h5>` + (desc ? `<p>${desc}</p>` : ""))
-                        .addTo(layerGroup);
-            });
-
-            return layerGroup;
-
-        } catch(error){
-            console.error('Error al cargar el archivo JSON de marcadores:', error);
-            return null;
-        }
-    }
-
-    async function addRoute(file, routeColor, markerColor){
-        try {
-            const response = await fetch(file);
-            const responseData = await response.json();
-
-            const markers = responseData.markers;
-            const layerGroup = L.featureGroup();
-            var route = [];
-
-            markers.forEach(({ lat, long, name, point }) => {
-                let text = point;
-                if (name != "") {
-                    text = name;
-                    var _routeMarker = L.ExtraMarkers.icon({
-                        icon: 'fa-number',
-                        markerColor: markerColor,
-                        number: point, 
-                        shape: 'circle',
-                        prefix: 'fa'
-                    });
-                    L.marker([lat, long], {icon: _routeMarker})
-                        .bindPopup(`<h5>` + text + `</h5>`)
-                        .addTo(layerGroup);
-                }
-                route.push([lat, long]);
-            });
-            var newRoute = L.polyline.antPath(route, {
-                color: routeColor,
-                delay: 4000,
-                dashArray: [10, 20],
-                weight: 5,
-                pulseColor: "#FFFFFF",
-                stroke: true
-            });
-            layerGroup.addLayer(newRoute);
-            return layerGroup;
-        } catch (error) {
-            console.error('Error al cargar el archivo JSON de rutas:', error);
-            return null;            
-        }
-        
     }
 
     async function plazaCircle(lat, long, _color, _fillColor, _radius){
@@ -259,43 +150,24 @@ $(function () {
         }
     }
 
-    async function addBibliography(){
-        $('#title').append(" \
-            <button type='button' id='btnModal' class='btn btn-info btn-biblio' \
-            data-toggle='modal' data-target='#biblioModal'>Bibliografía</button> \
-        ");
+    async function setFire(lat, long, popupText){
+        try {
+            const polygonLayer = L.featureGroup();
 
-        const biblioDiv = document.querySelector("#biblioModal"); 
-        var biblioTxt = "";
-        biblioDiv.querySelector(".modal-title").innerHTML = "Bibliografía";
-
-        const response = await fetch(mapName + "_bibliography" + suffix);
-        const responseData = await response.json();
-
-        if(!responseData.biblio || !Array.isArray(responseData.biblio)){
-            console.error('Formato de archivo JSON no válido');
-        }
+            var fireIcon = L.icon({
+                iconUrl: '../media/flame-icon.png',
+                iconSize: [46, 61.5],
+                popupAnchor: [-3, -76],
+            });
         
-        const biblio = responseData.biblio;
-        biblio.forEach(({author, title, source_auth, source, ext_data}) => {
-            biblioTxt += "<p>"+author+". ";
-            if(title != ""){
-                biblioTxt += "\"" + title +"\" ";
-            }
-            if(source_auth != ""){
-                biblioTxt += " en "+ source_auth +". ";
-            }
-            if(source != ""){
-                biblioTxt += "<i>" + source+ "</i>. "
-            }
-            biblioTxt += " " + ext_data;
-            biblioTxt += "</p>"
-            biblioDiv.querySelector(".modal-body").innerHTML = biblioTxt;
-        });
+            var fireMarker = L.marker([lat, long], {icon: fireIcon}).addTo(polygonLayer);
+            fireMarker.bindPopup(popupText);
 
-        $("#btnModal").on("click", function(){
-            $("#biblioModal").modal(); 
-          });
+            return polygonLayer;
+        } catch (error) {
+            console.error('Error al insertar polígonos: ', error);
+            return null;
+        }
     }
 
     // Slider opacidad //
@@ -332,8 +204,7 @@ $(function () {
                 break;
             case "#8":
             case "#11":
-                plazaMayor.radius = 100;
-                plazaMayor.addTo(map);
+                plazaMayorLg.addTo(map);
                 break;
             case "#4":
                 dateEvents.innerHTML = "14/01/1624";
@@ -360,6 +231,15 @@ $(function () {
                 route10_3.addTo(map);
                 plazaVolador.addTo(map)
                 break;
+            case "#13":
+                fireCarcel.addTo(map);
+                break;
+            case "#15":
+                route15.addTo(map);
+                break;
+            case "#19":
+                overlay.style.opacity = "1";        
+                break;
 
             default:
                 overlay.style.opacity = "0";
@@ -370,15 +250,18 @@ $(function () {
 
         function clearMapElements(){
             clearLayer(plazaMayor);
+            clearLayer(plazaMayorLg);
             clearLayer(plazaVolador);
             clearLayer(churches);
             clearLayer(plateros);
+            clearLayer(fireCarcel);
             clearLayer(route7);
             clearLayer(route9);
             clearLayer(route9_2);
             clearLayer(route10);
             clearLayer(route10_2);
             clearLayer(route10_3);
+            clearLayer(route15);
         }
 
         function clearLayer(layer){
