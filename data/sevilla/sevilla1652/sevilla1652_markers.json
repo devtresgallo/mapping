@@ -57,20 +57,12 @@
             "desc": "Las calles estaban cerradas y guardadas por «artilleros o soldados muy a guisa de pelear». En total había 6 piezas de artillería en las bocas de las calles de la Feria"
         },
         {
-            "icon": "fa-circle-play",
-            "color": "green-light",
-            "name": "22/05/1652 - Inicio conflicto",
-            "lat": 37.399467,
-            "long": -5.991382,
-            "desc": "Estando el marqués de Aguilafuente en la plaza, llegaron dos hombres a comprar pan y viendo el precio sacaron las espadas y dieron voces «¡viva el rey y muera el mal gobierno!» y le hicieron ir por el barrio diciendo aquello"
-        },
-        {
             "icon": "fa-place-of-worship",
             "color": "violet",
             "name": "Antigua casa del arzobispo",
             "lat": 37.386417,
             "long": -5.992197,
-            "desc": "«Fueron luego a casa del arzobispo y poniéndolo a caballo lo sacaron en público con todas las justicias de oidores, alcaldes y tenientes y otros ministros». Posteriormente, tras pasar por los Alcázares se inició la fase en la cual se atacaban las casas «donde se sospechaba había trigo [y] lo sacaban con autoridad de justicia». Así, en la segunda visita a la casa del arzobispo, se sacaron 2500 fanegas de trigo, que se llevaron luego a la alhóndiga."
+            "desc": ""
         },
         {
             "icon": "fa-road",
@@ -94,15 +86,15 @@
             "name": "Alcázares Reales - Casa de García de Porras",
             "lat": 37.383537,
             "long": -5.99207,
-            "desc": "Las cuadrillas llegaron a los Alcázares Reales, donde vivía García de Porres, y «acometiendo a su casa daban voces para que saliera diciéndole palabras injuriosas» Y salió el marqués de San Miguel, alcalde de los Alcázares, y dijo al asistente y al Arzobispo que Porres se había ido a caballo, vestido de labrador y salvando así su vida pues «Infaliblemente, si lo cogieran lo hicieran pedazos según era la cólera [e] ira que con él tenía todo el lugar por los rigores que había usado con los que ahorcó por la moneda.»"
+            "desc": ""
         },
         {
             "icon": "fa-horse",
             "color": "orange",
-            "name": "Caballeros trataban de apaciguar la ciudad (22-05)",
+            "name": "Caballeros trataban de apaciguar la ciudad",
             "lat": 37.389706,
             "long": -5.992794,
-            "desc": "el marqués de Villamanrique, Juan Gutiérrez Tello y su hijo don Diego Tello, su hermano don Francisco Tello de Portugal, maese de campo, don Fernando de Ribera, gobernador de Sanlúcar, don Pedro de Villavicencio, don Juan de Pineda, don Juan de Villacís, estos y otros caballeros que no nombro por muchos, se pusieron a caballo y con el asistente fueron por la ciudad apaciguándolos."
+            "desc": "Algunos caballeros, entre los que se encontraban don Juan Gutiérrez Tello, marqués de Villamanrique, y sus hijos Diego y Francisco maese de campo, don Fernando de Ribera gobernador de Sanlúcar, don Pedro de Villavicencio, don Juan de Pineda y don Juan de Villacís, alertados por los sucesos de la mañana y en un intento de proteger sus posesiones y sus intereses particulares, se reunieron y decidieron salir a caballo por las calles de la ciudad para calmar los ánimos de la gente."
         },
         {
             "icon": "fa-gun",

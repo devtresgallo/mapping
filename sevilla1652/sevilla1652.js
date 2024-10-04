@@ -26,7 +26,9 @@ $(function () {
         route1 = null, 
         route2 = null, 
         route3 = null, 
-        route4 = null;
+        route4 = null,
+        routeTriana = null;
+    var plazaFeria = null;
 
     ///////// Adding markers and routes /////////
     loadLayers();
@@ -36,7 +38,7 @@ $(function () {
 
     async function loadLayers() {
         try {
-            [markers, route1, route2, route3, route4, imageLayer] 
+            [markers, route1, route2, route3, route4, routeTriana, imageLayer, plazaFeria] 
             = await Promise.all([
                 addMarkers(dataFolder + mapName + "_markers" + suffix, ""),
                 addRoute(dataFolder + mapName + "_route1" + suffix, "blue", "blue"),
@@ -44,7 +46,9 @@ $(function () {
                 addRoute(dataFolder + mapName + "_route3" + suffix, "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route4" + suffix, "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route5" + suffix, "red", "red"),
-                insertImageRef(mediaFolder + "sevilla.jpg", topLeft, topRight, botLeft, botRight)
+                insertImageRef(mediaFolder + "sevilla.jpg", topLeft, topRight, botLeft, botRight),
+
+                plazaFeriaCircle(37.399146, -5.991400, 'red', '#f03', 50)
             ]);
     
             layerMap = L.layerGroup([markers, route1, route2, route3, route4, imageLayer]);
@@ -55,7 +59,7 @@ $(function () {
                 'Ruta 2': route2,
                 'Ruta 3': route3,
                 'Ruta 4': route4,
-                'Imagen': imageLayer
+                'Triana': routeTriana
             };
 
             layersControl = L.control.layers(null, subLayers).addTo(map);
@@ -64,6 +68,23 @@ $(function () {
 
         } catch (error) {
             console.error('Error al cargar las rutas: ', error);
+        }
+    }
+
+    async function plazaFeriaCircle(lat, long, _color, _fillColor, _radius){
+        try {
+            const polygonLayer = L.featureGroup();
+            L.circle([lat, long], {
+                color: _color,
+                fillColor: _fillColor,
+                fillOpacity: 0.5,
+                radius: _radius
+            }).addTo(polygonLayer);
+
+            return polygonLayer;
+        } catch (error) {
+            console.error('Error al insertar polígonos:', error);
+            return null;
         }
     }
 
@@ -90,28 +111,52 @@ $(function () {
             case "#1":
                 break;
             case "#2":
+                dateEvents.innerHTML = "22/05/1652";
+                dateEvents.style.opacity = "1";
+                plazaFeria.addTo(map);
                 break;
             case "#3":
+                route1.addTo(map);
                 break;
-            case "#4":             
+            case "#4":
+                route2.addTo(map);             
                 break;
             case "#5":
+                routeTriana.addTo(map);
                 break;
             case "#6":
+                route3.addTo(map);
                 break;
             case "#7":
+                route4.addTo(map);
                 break;
             case "#8":
                 break;
             case "#9":
+                overlay.style.backgroundColor = "rgba(25, 25, 112, 0.6)";
+                overlay.style.opacity = "1";
                 break;
             case "#10":
+                dateEvents.innerHTML = "23/05/1652";
+                dateEvents.style.opacity = "1";
                 break;
             case "#13":
                 break;
-            case "#15":
+            case "#16":
+                dateEvents.innerHTML = "24/05/1652";
+                dateEvents.style.opacity = "1";
                 break;
-            case "#19":
+            case "#17":    
+                dateEvents.innerHTML = "25/05/1652";
+                dateEvents.style.opacity = "1";
+                break;
+            case "#19":    
+                dateEvents.innerHTML = "26/05/1652";
+                dateEvents.style.opacity = "1";
+                break;
+            case "#20":    
+                dateEvents.innerHTML = "27/05/1652";
+                dateEvents.style.opacity = "1";
                 break;
 
             default:
@@ -122,7 +167,12 @@ $(function () {
         }
 
         function clearMapElements(){
-            clearLayer();
+            clearLayer(route1);
+            clearLayer(route2);
+            clearLayer(route3);
+            clearLayer(route4);
+            clearLayer(routeTriana);
+            clearLayer(plazaFeria);
         }
 
         function clearLayer(layer){
