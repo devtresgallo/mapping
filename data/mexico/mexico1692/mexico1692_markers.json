@@ -58,7 +58,7 @@
         },
         {
             "icon": "fa-church",
-            "color": "green-light",
+            "color": "red",
             "name": "Iglesia del Carmen",
             "lat": 19.440892,
             "long": -99.129342,
@@ -74,7 +74,7 @@
         },
         {
             "icon": "fa-church",
-            "color": "black",
+            "color": "red",
             "name": "Iglesia de San Juan",
             "lat": 19.436971,
             "long": -99.143665,
@@ -98,7 +98,7 @@
         },
         {
             "icon": "fa-map",
-            "color": "orange",
+            "color": "cyan",
             "name": "Barrio de indios de San Juan de Tenochtitlán",
             "lat": 19.429602,
             "long": -99.143402,
@@ -106,7 +106,7 @@
         },
         {
             "icon": "fa-church",
-            "color": "red",
+            "color": "violet",
             "name": "Catedral de Ciudad de México",
             "lat": 19.434181,
             "long": -99.133152,
@@ -130,7 +130,7 @@
         },
         {
             "icon": "fa-users",
-            "color": "black",
+            "color": "yellow",
             "name": "Plaza del volador",
             "lat": 19.431200,
             "long": -99.132281,

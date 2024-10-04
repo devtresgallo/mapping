@@ -18,7 +18,7 @@
         },
         {
             "icon": "fa-place-of-worship",
-            "color": "red",
+            "color": "orange-dark",
             "name": "Convento de Santo Domingo",
             "lat": 19.438936,
             "long": -99.133749,
@@ -98,7 +98,7 @@
         },
         {
             "icon": "fa-map",
-            "color": "orange",
+            "color": "cyan",
             "name": "Barrio de indios de San Juan de Tenochtitlán",
             "lat": 19.429602,
             "long": -99.143402,
@@ -106,7 +106,7 @@
         },
         {
             "icon": "fa-church",
-            "color": "red",
+            "color": "violet",
             "name": "Catedral de Ciudad de México",
             "lat": 19.434181,
             "long": -99.133152,
@@ -130,7 +130,7 @@
         },
         {
             "icon": "fa-users",
-            "color": "black",
+            "color": "yellow",
             "name": "Plaza del volador",
             "lat": 19.431150,
             "long": -99.131781,

@@ -1,8 +1,8 @@
 {
     "markers": [
         {
-            "point": "A",
-            "name": "Triana",
+            "point": "A - Triana",
+            "name": "",
             "lat": 37.380467,
             "long": -6.009422
         },
@@ -145,8 +145,8 @@
             "long": -5.99218
         },
         {
-            "point": "B",
-            "name": "Casa de García de Porras",
+            "point": "B - Casa de García de Porras",
+            "name": "",
             "lat": 37.383507,
             "long": -5.99227
         }

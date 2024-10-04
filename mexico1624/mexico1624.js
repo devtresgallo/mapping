@@ -42,7 +42,7 @@ $(function () {
                 insertImageRef(mediaFolder + "mexico.jpg", topLeft, topRight, botLeft, botRight),
                 plazaCircle(19.432621, -99.132826, 'red', '#f03', 50),
                 plazaCircle(19.432621, -99.132826, 'red', '#f03', 100),
-                plazaCircle(19.431150, -99.131781, 'orange', '#f50', 75),
+                plazaCircle(19.431150, -99.131781, 'red', '#f03', 75),
                 churchesCircles(),
                 platerosCircles(),
                 

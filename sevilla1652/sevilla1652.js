@@ -27,7 +27,8 @@ $(function () {
         route2 = null, 
         route3 = null, 
         route4 = null,
-        routeTriana = null;
+        routeTriana = null,
+        route5 = null;
     var plazaFeria = null;
 
     ///////// Adding markers and routes /////////
@@ -38,7 +39,7 @@ $(function () {
 
     async function loadLayers() {
         try {
-            [markers, route1, route2, route3, route4, routeTriana, imageLayer, plazaFeria] 
+            [markers, route1, route2, route3, route4, routeTriana, route5, imageLayer, plazaFeria] 
             = await Promise.all([
                 addMarkers(dataFolder + mapName + "_markers" + suffix, ""),
                 addRoute(dataFolder + mapName + "_route1" + suffix, "blue", "blue"),
@@ -46,6 +47,7 @@ $(function () {
                 addRoute(dataFolder + mapName + "_route3" + suffix, "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route4" + suffix, "blue", "blue"),
                 addRoute(dataFolder + mapName + "_route5" + suffix, "red", "red"),
+                addRoute(dataFolder + mapName + "_route6" + suffix, "green", "green"),
                 insertImageRef(mediaFolder + "sevilla.jpg", topLeft, topRight, botLeft, botRight),
 
                 plazaFeriaCircle(37.399146, -5.991400, 'red', '#f03', 50)
@@ -54,12 +56,7 @@ $(function () {
             layerMap = L.layerGroup([markers, route1, route2, route3, route4, imageLayer]);
             
             subLayers = {
-                'Markers': markers,
-                'Ruta 1': route1,
-                'Ruta 2': route2,
-                'Ruta 3': route3,
-                'Ruta 4': route4,
-                'Triana': routeTriana
+                'Markers': markers
             };
 
             layersControl = L.control.layers(null, subLayers).addTo(map);
@@ -125,6 +122,7 @@ $(function () {
                 routeTriana.addTo(map);
                 break;
             case "#6":
+                routeTriana.addTo(map);
                 route3.addTo(map);
                 break;
             case "#7":
@@ -140,7 +138,10 @@ $(function () {
                 dateEvents.innerHTML = "23/05/1652";
                 dateEvents.style.opacity = "1";
                 break;
+            case "#12":
             case "#13":
+            case "#14":
+                // route5.addTo(map);
                 break;
             case "#16":
                 dateEvents.innerHTML = "24/05/1652";
@@ -151,6 +152,9 @@ $(function () {
                 dateEvents.style.opacity = "1";
                 break;
             case "#19":    
+                plazaFeria.addTo(map);
+                overlay.style.backgroundColor = "rgba(25, 25, 112, 0.6)";
+                overlay.style.opacity = "1";
                 dateEvents.innerHTML = "26/05/1652";
                 dateEvents.style.opacity = "1";
                 break;
@@ -172,6 +176,7 @@ $(function () {
             clearLayer(route3);
             clearLayer(route4);
             clearLayer(routeTriana);
+            clearLayer(route5);
             clearLayer(plazaFeria);
         }
 

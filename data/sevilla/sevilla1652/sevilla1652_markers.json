@@ -1,12 +1,12 @@
 {
     "markers": [
         {
-            "icon": "fa-chess-rook",
-            "color": "",
+            "icon": "fa-mosque",
+            "color": "green",
             "name": "Palacio del Marqués de Algaba",
             "lat": 37.399433,
             "long": -5.990841,
-            "desc": "Centro de operaciones utilizado como almacén de trigo, pan, vino y otros víveres incautados por los \"populares\". Los principales objetivos fueron los ricos y nobles que tenían almacenes y los panaderos que llegaban a la ciudad, a los que se les quitaba el pan y el vino y se mataba a sus cabalgaduras."
+            "desc": ""
         },
         {
             "icon": "i8-cannon",
@@ -38,7 +38,7 @@
             "name": "Cañones de mano o pedreros",
             "lat": 37.399498,
             "long": -5.990990,
-            "desc": "El palacio del marqués estaba protegido por dos pequeños cañones de mano y «cien soldados arcabuceros y otros infantes con las espadas desnudas, rodelas y broqueles»"
+            "desc": ""
         },
         {
             "icon": "i8-cannon",
@@ -57,28 +57,28 @@
             "desc": "Las calles estaban cerradas y guardadas por «artilleros o soldados muy a guisa de pelear». En total había 6 piezas de artillería en las bocas de las calles de la Feria"
         },
         {
-            "icon": "fa-place-of-worship",
-            "color": "violet",
+            "icon": "fa-mosque",
+            "color": "green",
             "name": "Antigua casa del arzobispo",
             "lat": 37.386417,
             "long": -5.992197,
             "desc": ""
         },
         {
-            "icon": "fa-road",
-            "color": "black",
+            "icon": "fa-building-wheat",
+            "color": "orange",
             "name": "Alhondiga",
             "lat": 37.39232,
             "long": -5.98862,
-            "desc": "Una hora después de sacar al arzobispo de su casa «había puestos en armas más de 4000 hombres y acometieron todos a la armería de las casas de la alhóndiga, rompiendo las puertas y las armas de ella, que según dicen, entre mosquetes chicos y municiones y otras armas había sobre 12000. La sacaron todas sin dejar alguna»"
+            "desc": ""
         },
         {
             "icon": "fa-map",
-            "color": "green-dark",
+            "color": "cyan",
             "name": "Triana",
-            "lat": 37.38345,
-            "long": -6.00407,
-            "desc": "«Se habían convocado gran multitud de gente, y embistiendo a los espaderos, los desposeyeron de todas cuantas armas tenían y juntándose las dos cuadrillas que eran en gran número de gente, se fueron derechos a los Alcázares Reales, que es donde vivía don García de Porres»"
+            "lat": 37.380467,
+            "long": -6.009422,
+            "desc": ""
         },
         {
             "icon": "fa-house-user",
@@ -97,7 +97,7 @@
             "desc": "Algunos caballeros, entre los que se encontraban don Juan Gutiérrez Tello, marqués de Villamanrique, y sus hijos Diego y Francisco maese de campo, don Fernando de Ribera gobernador de Sanlúcar, don Pedro de Villavicencio, don Juan de Pineda y don Juan de Villacís, alertados por los sucesos de la mañana y en un intento de proteger sus posesiones y sus intereses particulares, se reunieron y decidieron salir a caballo por las calles de la ciudad para calmar los ánimos de la gente."
         },
         {
-            "icon": "fa-gun",
+            "icon": "i8-cannon",
             "color": "red",
             "name": "Piezas de artillería",
             "lat": 37.393001,
@@ -107,18 +107,18 @@
         {
             "icon": "fa-people-group",
             "color": "green",
-            "name": "Audiencia",
+            "name": "Casas del Audiencia",
             "lat": 37.389051,
             "long": -5.993827,
-            "desc": "Llegó «una gran cuadrilla de gente con grandes gritos y alborotos [a las casas del Audiencia] donde estaban juntos Juan Gutiérrez Tello [] el Arzobispo, Regente y otros oidores, y acometiendo a las puertas con armas de fuego y espadas y broqueles, con feas palabras pedían bajase la moneda, quitasen los millones, alcabalas, y porque no les dieron tan presto la respuesta subieron las escaleras para echar abajo las puertas y matar a los de la Junta, con lo cual, acordaron que al punto se concediese lo que pedían y así se ejecutó dando pregón público con que bajaron la moneda."
+            "desc": ""
         },
         {
             "icon": "fa-building-shield",
-            "color": "yellow",
+            "color": "black",
             "name": "Real Cárcel de Sevilla",
             "lat": 37.389636,
             "long": -5.994160,
-            "desc": "Luis Federigui (alguacil mayor), Juan Gutiérrez Tello, el Arzobispo y Francisco León se encontraban liberando a los «presos de moneda y papel» cuando el alguacil de la Audiencia Gonzalo de Córdoba «por cosa muy leve mató a dos de un carabinazo», lo que provocó que «coléricos se vinieron a la cárcel y embistieron con gran ímpetu, y rompiendo las puertas sin resistencia echaron todos los presos y presas fuera sin dejar a nadie, y proveyéndolos de armas fueron en casa del alguacil y le saquearon la casa sin dejar en ella nada y trayéndolo a la plaza de San Francisco hicieron un montón de toda la ropa sin reservar nada, ni aun cuadros. Lo mismo hicieron en las casas de Juan de Miranda y Juan de Páez, escribanos de la justicia, que saqueándoles las casas se fueron a los oficios del crimen y echando con hachas las puertas abajo, sacaron los cajones, pleitos y bancos y la ropa y todo le pegaron fuego sin reservar nada, y lo mismo hicieron con los dueños si los cogieran, que tanta era la cólera de los amotinados»"
+            "desc": ""
         },
         {
             "icon": "fa-building-shield",
@@ -126,7 +126,7 @@
             "name": "Antigua Cárcel de la Inquisición",
             "lat": 37.385665,
             "long": -6.003760,
-            "desc": "Figueiras (clérigo portugués) quiso «embestir la Inquisición y echar los presos fuera a no detenerlos a las puertas de Pedro Manjarrés, inquisidor, que con palabras amorosas les quitó de la memoria la fea cosas [] y le propusieron al capitán que si querían los caballeros que alargasen las armas les habían de dar el perdón general de SM y una gran suma de plata [] una merced de desterrar de su Corte a Don Juan de Góngora y Francisco Fernández de Solís»"
+            "desc": ""
         },
         {
             "icon": "fa-church",
@@ -134,7 +134,15 @@
             "name": "Iglesia Mayor",
             "lat": 37.385881,
             "long": -5.993336,
-            "desc": "Reunión de «toda la nobleza y demás particulares» que viendo «las desordenes que había, y peligros que sus casas amenazaban, y que no había orden de ningún superior, ellos mismos de su propio motivo se juntaron en sus parroquias y poniendo los cuerpos de guardia en ellos acudían todos los vecinos de ellas con gran vigilancia y cuidado, estando de noche y de día con las armas en la mano»"
+            "desc": ""
+        },
+        {
+            "icon": "fa-chess-rook",
+            "color": "brown",
+            "name": "Puerta de la Macarena",
+            "lat": 37.402766,
+            "long": -5.989233,
+            "desc": ""
         }
     ]
 }

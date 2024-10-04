@@ -1,0 +1,28 @@
+{
+    "markers": [
+        {
+            "point": "1",
+            "name": "Plaza de la Feria",
+            "lat": 37.399646,
+            "long": -5.991400
+        },
+        {
+            "point": "2",
+            "name": "Casas del Audencia",
+            "lat": 37.389051,
+            "long": -5.993827
+        },
+        {
+            "point": "3",
+            "name": "Iglesia Mayor",
+            "lat": 37.385881,
+            "long": -5.993336
+        },
+        {
+            "point": "4",
+            "name": "Real Cárcel de Sevilla",
+            "lat": 37.389636,
+            "long": -5.994160
+        }
+    ]
+}
