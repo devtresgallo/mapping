@@ -143,6 +143,14 @@
             "lat": 37.402766,
             "long": -5.989233,
             "desc": ""
+        },
+        {
+            "icon": "fa-users",
+            "color": "yellow",
+            "name": "Plaza de San Francisco",
+            "lat": 37.388649,
+            "long": -5.994056,
+            "desc": ""
         }
     ]
 }

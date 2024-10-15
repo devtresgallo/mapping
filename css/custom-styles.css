@@ -47,15 +47,15 @@ body { margin: 0; padding: 0; }
 
 .date-time{
     position: absolute;
-    top: 53px;
-    right: 5px;
+    top: 0px;
+    left: 50px;
     float: right;
     margin-right: 10px;
     margin-top: 10px;
     background-color: rgba(0, 0, 0, 0.13);
     opacity: 0;
     transition: opacity 1s ease, opacity 1s ease;
-    padding: 5px;
+    padding: 0 5px 5px;
     font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
     font-size: 18pt;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;

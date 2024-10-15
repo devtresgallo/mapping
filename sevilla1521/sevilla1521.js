@@ -8,7 +8,7 @@
 
 $(function () {
 
-    const mapName = "sevilla1520";
+    const mapName = "sevilla1521";
     const dataFolder = "../data/sevilla/" + mapName.toLowerCase() + "/";
     const suffix = ".json";
 
