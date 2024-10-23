@@ -23,6 +23,8 @@ $(function () {
     var imageLayer = null;
     var layersControl = {};
     var markers = null;
+    var route1 = null;
+    var plazaFeria = null;
 
     ///////// Adding markers and routes /////////
     loadLayers();
@@ -32,10 +34,12 @@ $(function () {
 
     async function loadLayers() {
         try {
-            [markers, imageLayer] 
+            [markers, route1, imageLayer, plazaFeria] 
             = await Promise.all([
                 addMarkers(dataFolder + mapName + "_markers" + suffix, ""),
-                insertImageRef(mediaFolder + "sevilla.jpg", topLeft, topRight, botLeft, botRight)
+                insertImageRef(mediaFolder + "sevilla.jpg", topLeft, topRight, botLeft, botRight),
+
+                plazaFeriaCircle(37.399146, -5.991400, 'red', '#f03', 25)
             ]);
     
             layerMap = L.layerGroup([markers, imageLayer]);
@@ -51,6 +55,23 @@ $(function () {
 
         } catch (error) {
             console.error('Error al cargar las rutas: ', error);
+        }
+    }
+
+    async function plazaFeriaCircle(lat, long, _color, _fillColor, _radius){
+        try {
+            const polygonLayer = L.featureGroup();
+            L.circle([lat, long], {
+                color: _color,
+                fillColor: _fillColor,
+                fillOpacity: 0.5,
+                radius: _radius
+            }).addTo(polygonLayer);
+
+            return polygonLayer;
+        } catch (error) {
+            console.error('Error al insertar polígonos:', error);
+            return null;
         }
     }
 
@@ -77,28 +98,10 @@ $(function () {
             case "#1":
                 break;
             case "#2":
-                break;
             case "#3":
-                break;
             case "#4":             
-                break;
             case "#5":
-                break;
-            case "#6":
-                break;
-            case "#7":
-                break;
-            case "#8":
-                break;
-            case "#9":
-                break;
-            case "#10":
-                break;
-            case "#13":
-                break;
-            case "#15":
-                break;
-            case "#19":
+                plazaFeria.addTo(map);
                 break;
 
             default:
@@ -109,7 +112,7 @@ $(function () {
         }
 
         function clearMapElements(){
-            clearLayer();
+            clearLayer(plazaFeria);
         }
 
         function clearLayer(layer){
